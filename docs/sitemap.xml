@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/cv/</loc>
+    <loc>http://dfcubidesc.com/cv/</loc>
     <lastmod>2023-06-01T09:03:20-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>http://dfcubidesc.com/</loc>
     <lastmod>2023-06-01T09:03:20-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/cv/resume/</loc>
+    <loc>http://dfcubidesc.com/cv/resume/</loc>
     <lastmod>2023-06-01T09:03:20-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://dfcubidesc.com/categories/</loc>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>http://dfcubidesc.com/posts/</loc>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://dfcubidesc.com/tags/</loc>
   </url>
 </urlset>
