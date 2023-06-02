@@ -1,0 +1,28 @@
+theme = 'ananke' 
+baseURL = 'http://dfcubidesc.com/'
+languageCode = 'en-us'
+title = 'dfcubidesc'
+
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 10
+
+[params]
+  text_color = ""
+  author = ""
+  favicon = ""
+  site_logo = ""
+  description = "The last theme you'll ever need. Maybe."
+  # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+  background_color_class = "bg-light-blue"
+  recent_posts_number = 3
+
+# Add Social Media
+  [[params.ananke_socials]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/dfernandocubicesc/"
+
+  [[params.ananke_socials]]
+    name = "github"
+    url = "https://github.com/DanielFCubides"
+
