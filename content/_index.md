@@ -6,6 +6,7 @@ description: "I'm Daniel Fernando Cubides, I am deeply passionate about Software
 theme_version: '2.8.2'
 cascade:
   featured_image: '/images/ideas.jpg'
+draft: false
 ---
 I'm a transformational leader in software development and operations with experience building and empowering engineering teams to deliver and support PaaS/SaaS in hyper-growth environments. I'm passionate about growing technical leaders and building diverse, sustainable teams in an evolving Tech culture.
 

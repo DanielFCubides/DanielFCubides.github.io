@@ -6,4 +6,5 @@ description: "Here you will find more about my experience and the projects I hav
 theme_version: '2.8.2'
 #cascade:
 #  featured_image: '/images/gohugo-default-sample-hero-image.jpg'
+draft: false
 ---
