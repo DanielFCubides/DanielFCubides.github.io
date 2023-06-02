@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on dfcubidesc</title>
-    <link>http://dfcubidesc.com/categories/</link>
+    <link>http://www.dfcubidesc.com/categories/</link>
     <description>Recent content in Categories on dfcubidesc</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://dfcubidesc.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="http://www.dfcubidesc.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

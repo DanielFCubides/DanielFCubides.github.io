@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About me on dfcubidesc</title>
-    <link>http://dfcubidesc.com/cv/</link>
+    <link>http://www.dfcubidesc.com/cv/</link>
     <description>Recent content in About me on dfcubidesc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Jun 2023 09:03:20 -0500</lastBuildDate><atom:link href="http://dfcubidesc.com/cv/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2023 09:03:20 -0500</lastBuildDate><atom:link href="http://www.dfcubidesc.com/cv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My journey so far</title>
-      <link>http://dfcubidesc.com/cv/resume/</link>
+      <link>http://www.dfcubidesc.com/cv/resume/</link>
       <pubDate>Thu, 01 Jun 2023 09:03:20 -0500</pubDate>
       
-      <guid>http://dfcubidesc.com/cv/resume/</guid>
+      <guid>http://www.dfcubidesc.com/cv/resume/</guid>
       <description>I am a transformational leader in software development and operations with experience building and empowering engineering teams to deliver and support PaaS/SaaS in hyper-growth environments. Passionate about growing technical leaders and building diverse, sustainable teams in an evolving Tech culture.
 Skills Cultural Change, Mentorship, Negotiation, Project Management, Program Management, Cloud Adoption, Golang and Kubernetes
 Experience Senior Software Engineering Manager Telesign / Customer Engagement
