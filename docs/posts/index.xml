@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interesting Ideas on dfcubidesc</title>
+    <link>http://www.dfcubidesc.com/posts/</link>
+    <description>Recent content in Interesting Ideas on dfcubidesc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Dec 2023 09:03:20 -0500</lastBuildDate><atom:link href="http://www.dfcubidesc.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOLID principles for architecture</title>
+      <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart2/</link>
+      <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
+      
+      <guid>http://www.dfcubidesc.com/posts/cleanarchitecturepart2/</guid>
+      <description>The SOLID principles are a set of guidelines for software design and architecture, aimed at making software systems more understandable, flexible, and maintainable. These principles were promoted by Robert C. Martin in his book &amp;ldquo;Clean Architecture,&amp;rdquo; and they are widely accepted in the software development community. Here&amp;rsquo;s a breakdown of each principle:
+Single Responsibility Principle (SRP): This principle states that a class should have only one reason to change. It means that a class should only have one job or responsibility.</description>
+    </item>
+    
+    <item>
+      <title>The Five Dysfunctions of a Team</title>
+      <link>http://www.dfcubidesc.com/posts/the5thdisfuncofateam/</link>
+      <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
+      
+      <guid>http://www.dfcubidesc.com/posts/the5thdisfuncofateam/</guid>
+      <description>&amp;ldquo;The Five Dysfunctions of a Team&amp;rdquo; by Patrick Lencioni presents a unique approach to understanding and overcoming common pitfalls faced by teams.
+Absence of Trust: This foundational dysfunction is where team members are not open with each other about their mistakes and weaknesses. It leads to a lack of vulnerability-based trust, which is crucial for building a strong team. Fear of Conflict: Teams that lack trust are incapable of engaging in unfiltered and passionate debate of ideas.</description>
+    </item>
+    
+    <item>
+      <title>The rol of a Tech Lead</title>
+      <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart1/</link>
+      <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
+      
+      <guid>http://www.dfcubidesc.com/posts/cleanarchitecturepart1/</guid>
+      <description>The rol of a software Architect or a tech lead may vary slightly in different organizations, generally encompass a range of duties focused on guiding the development and maintenance of software systems. These roles should docus on:
+Defining and Maintaining the Overall Architecture: The primary responsibility of a software architect or tech lead is to define the software&amp;rsquo;s architecture. This involves deciding on the software&amp;rsquo;s structure, its components, and how these components interact with each other.</description>
+    </item>
+    
+  </channel>
+</rss>
