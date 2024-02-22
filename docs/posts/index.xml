@@ -6,7 +6,16 @@
     <description>Recent content in Interesting Ideas on dfcubidesc</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Dec 2023 09:03:20 -0500</lastBuildDate><atom:link href="http://www.dfcubidesc.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Feb 2024 09:22:03 -0500</lastBuildDate><atom:link href="http://www.dfcubidesc.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservices vs. Monolithic Architecture: A Comparative Analysis</title>
+      <link>http://www.dfcubidesc.com/posts/microservicesvsmonolithic/</link>
+      <pubDate>Thu, 22 Feb 2024 09:22:03 -0500</pubDate>
+      
+      <guid>http://www.dfcubidesc.com/posts/microservicesvsmonolithic/</guid>
+      <description>Microservices vs. Monolithic Architecture: A Comparative Analysis In the rapidly evolving world of software development, the debate between microservices and monolithic architectures is more relevant than ever. Drawing insights from Sam Newman&amp;rsquo;s seminal works, &amp;ldquo;Building Microservices&amp;rdquo; and &amp;ldquo;Monolith to Microservices,&amp;rdquo; and incorporating theories from Martin Fowler, this post aims to offer a comprehensive understanding of both architectures, providing software professionals and enthusiasts with the knowledge needed to navigate these complex landscapes.</description>
+    </item>
+    
     <item>
       <title>SOLID principles for architecture</title>
       <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart2/</link>
