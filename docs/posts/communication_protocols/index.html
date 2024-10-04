@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>understanding GRPC, GraphQL and Rest | dfcubidesc</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison
+When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we&rsquo;ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.
+1. REST (Representational State Transfer)
+What is REST?
+REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.">
+    <meta name="generator" content="Hugo 0.134.3">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://www.dfcubidesc.com/posts/communication_protocols/">
+    
+
+    <meta property="og:url" content="http://www.dfcubidesc.com/posts/communication_protocols/">
+  <meta property="og:site_name" content="dfcubidesc">
+  <meta property="og:title" content="understanding GRPC, GraphQL and Rest">
+  <meta property="og:description" content="Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we’ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.
+1. REST (Representational State Transfer) What is REST? REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+  <meta itemprop="name" content="understanding GRPC, GraphQL and Rest">
+  <meta itemprop="description" content="Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we’ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.
+1. REST (Representational State Transfer) What is REST? REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.">
+  <meta itemprop="wordCount" content="1278">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="understanding GRPC, GraphQL and Rest">
+  <meta name="twitter:description" content="Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we’ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.
+1. REST (Representational State Transfer) What is REST? REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('http://www.dfcubidesc.com/images/ideas.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        dfcubidesc
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cv/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Interesting Ideas page">
+              Interesting Ideas
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.linkedin.com/in/dfernandocubicesc/" target="_blank" rel="noopener" class="linkedin ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" aria-label="follow on LinkedIn——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/DanielFCubides" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">understanding GRPC, GraphQL and Rest</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Interesting Ideas
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.dfcubidesc.com/posts/communication_protocols/&amp;title=understanding%20GRPC,%20GraphQL%20and%20Rest" class="ananke-social-link linkedin no-underline" aria-label="share on LinkedIn">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">understanding GRPC, GraphQL and Rest</h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="understanding-rest-graphql-and-grpc-a-comprehensive-comparison">Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison</h2>
+<p>When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we&rsquo;ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.</p>
+<h3 id="1-rest-representational-state-transfer">1. <strong>REST (Representational State Transfer)</strong></h3>
+<h4 id="what-is-rest">What is REST?</h4>
+<p>REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.</p>
+<h4 id="advantages-of-rest">Advantages of REST:</h4>
+<ul>
+<li><strong>Simplicity</strong>: REST leverages standard HTTP methods (GET, POST, PUT, DELETE), which makes it simple and intuitive to use, especially for web-based applications.</li>
+<li><strong>Wide Adoption</strong>: REST has been the go-to API design for years, so it has a broad ecosystem with many libraries, tools, and frameworks.</li>
+<li><strong>Stateless</strong>: Since each request is independent, scaling a REST service horizontally is easier, as no session is maintained between requests.</li>
+<li><strong>Caching</strong>: REST’s support for caching mechanisms (HTTP headers like <code>Cache-Control</code> or <code>ETag</code>) helps improve performance for repeated requests.</li>
+</ul>
+<h4 id="disadvantages-of-rest">Disadvantages of REST:</h4>
+<ul>
+<li><strong>Over-fetching/Under-fetching</strong>: Clients often receive more data than necessary (over-fetching) or need multiple requests to get the data they need (under-fetching). This can lead to inefficiencies.</li>
+<li><strong>Fixed Data Structure</strong>: REST APIs are tightly coupled with the underlying data model. Any change to the API or data structure may require creating new endpoints, which can cause versioning headaches.</li>
+<li><strong>Limited Type Safety</strong>: REST is not strongly typed, which means there&rsquo;s a higher chance for data type mismatches between client and server.</li>
+</ul>
+<h4 id="best-use-cases-for-rest">Best Use Cases for REST:</h4>
+<ul>
+<li><strong>Web applications</strong>: REST works well for web applications where simplicity and familiarity are important.</li>
+<li><strong>CRUD operations</strong>: Systems that mainly perform Create, Read, Update, and Delete operations can benefit from REST’s simplicity.</li>
+<li><strong>Public APIs</strong>: Since REST is widely understood, it’s often a good choice for public-facing APIs that need to cater to a broad developer audience.</li>
+</ul>
+<h4 id="where-rest-may-not-be-the-best-fit">Where REST May Not Be the Best Fit:</h4>
+<ul>
+<li><strong>Complex Queries</strong>: If you need to retrieve nested or highly interrelated data, REST’s over-fetching and under-fetching problems can lead to inefficiencies.</li>
+<li><strong>Real-time Applications</strong>: REST is request-response-based and not well-suited for real-time communication.</li>
+</ul>
+<h3 id="2-graphql">2. <strong>GraphQL</strong></h3>
+<h4 id="what-is-graphql">What is GraphQL?</h4>
+<p>GraphQL is a query language developed by Facebook that allows clients to request exactly the data they need, no more, no less. It gives the client the ability to specify what fields and objects they want in the response, regardless of how the data is structured on the server.</p>
+<h4 id="advantages-of-graphql">Advantages of GraphQL:</h4>
+<ul>
+<li><strong>Client-Specified Queries</strong>: Clients can request exactly the data they need, which eliminates the over-fetching and under-fetching issues present in REST.</li>
+<li><strong>Strongly Typed Schema</strong>: GraphQL operates on a well-defined schema, providing type safety and clear contracts between client and server.</li>
+<li><strong>Single Endpoint</strong>: Unlike REST, which often has multiple endpoints, GraphQL uses a single endpoint for all queries and mutations, simplifying routing and discovery.</li>
+<li><strong>Efficient Querying</strong>: Nested and related data can be queried in a single request, reducing the number of round trips between client and server.</li>
+</ul>
+<h4 id="disadvantages-of-graphql">Disadvantages of GraphQL:</h4>
+<ul>
+<li><strong>Complexity</strong>: The flexibility of GraphQL can lead to complexity in query construction, especially for teams that are new to it.</li>
+<li><strong>No Caching Out of the Box</strong>: While REST can leverage HTTP caching, caching in GraphQL is more complex and typically requires custom solutions.</li>
+<li><strong>Overhead on the Server</strong>: Since clients can request deeply nested data, GraphQL can place a significant load on the server if not properly managed, as each query must be resolved dynamically.</li>
+<li><strong>Over-fetching on Server</strong>: While GraphQL solves the over-fetching problem for clients, it can cause over-fetching on the server, as it may retrieve more data than necessary to satisfy a query.</li>
+</ul>
+<h4 id="best-use-cases-for-graphql">Best Use Cases for GraphQL:</h4>
+<ul>
+<li><strong>Mobile and Web Applications</strong>: Applications that need flexibility in data fetching and optimization for low-bandwidth networks, such as mobile devices, benefit from GraphQL.</li>
+<li><strong>Highly Related Data</strong>: Applications where data is highly relational or nested, such as social networks or content platforms.</li>
+<li><strong>Rapidly Evolving APIs</strong>: If your API changes frequently, GraphQL allows clients to adjust more flexibly without requiring multiple versions of the API.</li>
+</ul>
+<h4 id="where-graphql-may-not-be-the-best-fit">Where GraphQL May Not Be the Best Fit:</h4>
+<ul>
+<li><strong>Simple CRUD Operations</strong>: For straightforward CRUD operations, GraphQL may introduce unnecessary complexity compared to REST.</li>
+<li><strong>Public APIs</strong>: GraphQL’s flexibility can be too complex for simple, public APIs where developers prefer the predictability of REST.</li>
+<li><strong>Heavy Backend Load</strong>: If your backend infrastructure is sensitive to performance, GraphQL&rsquo;s ability to request large amounts of data with nested queries could lead to server strain.</li>
+</ul>
+<h3 id="3-grpc-grpc-remote-procedure-call">3. <strong>gRPC (gRPC Remote Procedure Call)</strong></h3>
+<h4 id="what-is-grpc">What is gRPC?</h4>
+<p>gRPC is a high-performance, open-source framework developed by Google that enables Remote Procedure Calls (RPC) across different systems. It uses HTTP/2 for transport, Protocol Buffers (Protobuf) for message serialization, and supports multiple languages for both client and server development.</p>
+<h4 id="advantages-of-grpc">Advantages of gRPC:</h4>
+<ul>
+<li><strong>High Performance</strong>: gRPC leverages HTTP/2 for multiplexed requests, binary Protobuf serialization for smaller payloads, and reduced latency, making it highly performant.</li>
+<li><strong>Streaming Support</strong>: gRPC supports both client-side and server-side streaming, making it ideal for real-time communication and data streaming applications.</li>
+<li><strong>Strong Typing</strong>: gRPC enforces a strict contract through Protobuf, ensuring strong type safety and clearer communication between client and server.</li>
+<li><strong>Multi-language Support</strong>: gRPC supports a wide range of programming languages, which makes it a great fit for polyglot environments.</li>
+</ul>
+<h4 id="disadvantages-of-grpc">Disadvantages of gRPC:</h4>
+<ul>
+<li><strong>Complexity</strong>: The steep learning curve and additional complexity of setting up Protobuf and understanding HTTP/2 make gRPC more difficult for teams to adopt compared to REST or GraphQL.</li>
+<li><strong>Limited Browser Support</strong>: gRPC is not natively supported by web browsers, making it a less attractive option for client-side web applications. Workarounds like gRPC-Web can be used but introduce additional complexity.</li>
+<li><strong>Verbose Definitions</strong>: Writing and maintaining Protobuf definitions can be verbose, especially for small teams or simple APIs.</li>
+</ul>
+<h4 id="best-use-cases-for-grpc">Best Use Cases for gRPC:</h4>
+<ul>
+<li><strong>Microservices</strong>: gRPC is ideal for inter-service communication in a microservices architecture due to its efficiency, low-latency streaming, and strong contract enforcement.</li>
+<li><strong>Real-time Applications</strong>: Applications requiring real-time bidirectional communication, such as video streaming or chat services, can benefit from gRPC’s streaming capabilities.</li>
+<li><strong>High-performance Systems</strong>: Systems that require maximum performance, such as backend systems or highly scalable APIs, can leverage gRPC for its speed and efficiency.</li>
+</ul>
+<h4 id="where-grpc-may-not-be-the-best-fit">Where gRPC May Not Be the Best Fit:</h4>
+<ul>
+<li><strong>Web Applications</strong>: Due to the lack of native browser support, gRPC is not well-suited for public-facing web applications.</li>
+<li><strong>Simple APIs</strong>: For simpler APIs where the benefits of performance and type safety are less crucial, gRPC may introduce unnecessary complexity.</li>
+<li><strong>Learning Curve</strong>: Teams unfamiliar with Protocol Buffers and HTTP/2 may find the learning curve and complexity of gRPC too steep for simpler use cases.</li>
+</ul>
+<h3 id="comparison-table"><strong>Comparison Table</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Feature</th>
+          <th style="text-align: left">REST</th>
+          <th style="text-align: left">GraphQL</th>
+          <th style="text-align: left">gRPC</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Performance</strong></td>
+          <td style="text-align: left">Moderate (text-based, HTTP/1.1)</td>
+          <td style="text-align: left">Moderate (custom queries)</td>
+          <td style="text-align: left">High (binary, HTTP/2)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Type Safety</strong></td>
+          <td style="text-align: left">Low (loosely typed)</td>
+          <td style="text-align: left">High (strongly typed schema)</td>
+          <td style="text-align: left">High (Protobuf enforced)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Caching</strong></td>
+          <td style="text-align: left">Strong HTTP caching support</td>
+          <td style="text-align: left">Requires custom implementation</td>
+          <td style="text-align: left">Limited, custom caching needed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Client-Specified Queries</strong></td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Yes</td>
+          <td style="text-align: left">No (fixed methods)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Streaming</strong></td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Yes (native streaming support)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Ease of Use</strong></td>
+          <td style="text-align: left">High (wide adoption, simple)</td>
+          <td style="text-align: left">Moderate (learning curve)</td>
+          <td style="text-align: left">Low (steep learning curve)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Best Use Cases</strong></td>
+          <td style="text-align: left">Web apps, CRUD operations</td>
+          <td style="text-align: left">Mobile apps, nested data queries</td>
+          <td style="text-align: left">Microservices, real-time applications</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<ul>
+<li><strong>REST</strong> is a great choice for web applications with standard CRUD operations and simplicity as a priority.</li>
+<li><strong>GraphQL</strong> shines when you need flexibility and efficiency in retrieving nested data or when your API is rapidly evolving.</li>
+<li><strong>gRPC</strong> is ideal for microservices and high-performance systems where speed, low latency, and real-time communication are crucial.</li>
+</ul>
+<p>Each protocol has its own strengths and weaknesses, and the right choice depends on your application&rsquo;s specific needs.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://www.dfcubidesc.com/" >
+    &copy;  dfcubidesc 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.linkedin.com/in/dfernandocubicesc/" target="_blank" rel="noopener" class="linkedin ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" aria-label="follow on LinkedIn——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/DanielFCubides" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
