@@ -1,8 +1,9 @@
 ---
-title: "understanding GRPC, GraphQL and Rest"
-date: 20234-10-04T09:03:20-05:00
+title: "Understanding GRPC, GraphQL and Rest"
+date: 2023-12-18T09:03:20-05:00
 draft: false
 ---
+
 ## Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison
 
 When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we'll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.

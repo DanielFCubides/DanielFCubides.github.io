@@ -5,7 +5,10 @@ title = 'dfcubidesc'
 
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
-Paginate = 10
+publishDir = "docs"
+pagination.pagerSize = 10  # This would limit to 4 posts per page
+
+
 
 [params]
   text_color = ""
@@ -15,16 +18,12 @@ Paginate = 10
   description = "The last theme you'll ever need. Maybe."
   # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
   background_color_class = "bg-black"
-  recent_posts_number = 3
+  recent_posts_number = 8
+  [social]
+    linkedin = "https://www.linkedin.com/in/dfernandocubicesc/"
+    github = "https://github.com/DanielFCubides"
+    # other social media
 
-# Add Social Media
-  [[params.ananke_socials]]
-    name = "linkedin"
-    url = "https://www.linkedin.com/in/dfernandocubicesc/"
-
-  [[params.ananke_socials]]
-    name = "github"
-    url = "https://github.com/DanielFCubides"
 
 [outputs]
   home = ["HTML"]

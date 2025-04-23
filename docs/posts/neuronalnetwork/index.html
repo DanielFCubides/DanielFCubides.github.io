@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Neural Networks Explained: Flight Similarity Prediction | dfcubidesc</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Learn how neural networks work through a real-world example of flight similarity prediction">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://www.dfcubidesc.com/posts/neuronalnetwork/">
+    
+
+    <meta property="og:url" content="http://www.dfcubidesc.com/posts/neuronalnetwork/">
+  <meta property="og:site_name" content="dfcubidesc">
+  <meta property="og:title" content="Neural Networks Explained: Flight Similarity Prediction">
+  <meta property="og:description" content="Learn how neural networks work through a real-world example of flight similarity prediction">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-22T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Neural Networks">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta itemprop="name" content="Neural Networks Explained: Flight Similarity Prediction">
+  <meta itemprop="description" content="Learn how neural networks work through a real-world example of flight similarity prediction">
+  <meta itemprop="datePublished" content="2025-04-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1580">
+  <meta itemprop="keywords" content="Machine Learning,Neural Networks,Python,Tutorial">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Neural Networks Explained: Flight Similarity Prediction">
+  <meta name="twitter:description" content="Learn how neural networks work through a real-world example of flight similarity prediction">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('http://www.dfcubidesc.com/images/ideas.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        dfcubidesc
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cv/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Interesting Ideas page">
+              Interesting Ideas
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Neural Networks Explained: Flight Similarity Prediction</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              Learn how neural networks work through a real-world example of flight similarity prediction
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Interesting Ideas
+      </aside>
+      
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Neural Networks Explained: Flight Similarity Prediction</h1>
+      
+      <p class="tracked">
+        By <strong>Daniel F Cubides</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-04-22T00:00:00Z">April 22, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="neural-networks-explained-flight-similarity-prediction">Neural Networks Explained: Flight Similarity Prediction</h1>
+<p>Hey there, tech enthusiasts and curious minds! 👋 Today we&rsquo;re diving into the fascinating world of neural networks with a real example: predicting flight similarities! Don&rsquo;t worry if you&rsquo;re new to this - I&rsquo;ll break it down so it&rsquo;s as easy as ordering your favorite pizza.</p>
+<h2 id="-neural-networks-the-basics">🧠 Neural Networks: The Basics</h2>
+<p>Imagine your brain for a second. It&rsquo;s made up of billions of neurons that send signals to each other, helping you recognize patterns, make decisions, and learn new things. Artificial Neural Networks (ANNs) are inspired by this amazing biological design!</p>
+<h3 id="whats-a-neural-network-really">What&rsquo;s a Neural Network, Really?</h3>
+<p>A neural network is like a team of digital neurons working together to solve problems. Here&rsquo;s how they work in simple terms:</p>
+<ol>
+<li><strong>Input Layer</strong>: This is where we feed our data (like flight details in our example)</li>
+<li><strong>Hidden Layers</strong>: These middle layers do the heavy lifting - processing the information</li>
+<li><strong>Output Layer</strong>: This gives us our answer (like &ldquo;yes, these flights are similar&rdquo; or &ldquo;nope, totally different&rdquo;)</li>
+</ol>
+<p>Each &ldquo;neuron&rdquo; in these layers takes information, applies a mathematical function to it, and passes the result to the next layer. It&rsquo;s kind of like a relay race of calculations!</p>
+<h3 id="why-are-neural-networks-so-cool">Why Are Neural Networks So Cool?</h3>
+<p>Neural networks are amazing because they can:</p>
+<ul>
+<li>Learn from examples (just like humans!)</li>
+<li>Find patterns that might be invisible to the human eye</li>
+<li>Make predictions about things they&rsquo;ve never seen before</li>
+<li>Handle messy, real-world data</li>
+</ul>
+<h2 id="-lets-analyze-our-flight-similarity-code">🔍 Let&rsquo;s Analyze Our Flight Similarity Code</h2>
+<p>Now, let&rsquo;s look at the code we have for predicting flight similarities! This model helps determine when two flights might be related or substitutable for each other.</p>
+<h3 id="feature-engineering-making-sense-of-flight-data">Feature Engineering: Making Sense of Flight Data</h3>
+<p>First, our code transforms raw flight data into useful features:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">feature_engineering</span>(df):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Make a copy to avoid modifying the original</span>
+</span></span><span style="display:flex;"><span>    df_copy <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Convert times to numerical values (minutes)</span>
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;flight_1_minutes&#39;</span>] <span style="color:#f92672">=</span> df_copy[<span style="color:#e6db74">&#39;Flight_1_time&#39;</span>]<span style="color:#f92672">.</span>apply(convert_time_to_minutes)
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;flight_2_minutes&#39;</span>] <span style="color:#f92672">=</span> df_copy[<span style="color:#e6db74">&#39;Flight_2_time&#39;</span>]<span style="color:#f92672">.</span>apply(convert_time_to_minutes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create new features</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Price difference between flights</span>
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;price_diff&#39;</span>] <span style="color:#f92672">=</span> abs(df_copy[<span style="color:#e6db74">&#39;flight_1_price&#39;</span>] <span style="color:#f92672">-</span> df_copy[<span style="color:#e6db74">&#39;flight_2_price&#39;</span>])
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;price_ratio&#39;</span>] <span style="color:#f92672">=</span> df_copy[<span style="color:#e6db74">&#39;flight_1_price&#39;</span>] <span style="color:#f92672">/</span> df_copy[<span style="color:#e6db74">&#39;flight_2_price&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Time difference between flights</span>
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;time_diff&#39;</span>] <span style="color:#f92672">=</span> abs(df_copy[<span style="color:#e6db74">&#39;flight_1_minutes&#39;</span>] <span style="color:#f92672">-</span> df_copy[<span style="color:#e6db74">&#39;flight_2_minutes&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Route similarity features</span>
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;same_origin&#39;</span>] <span style="color:#f92672">=</span> (df_copy[<span style="color:#e6db74">&#39;flight_1_from&#39;</span>] <span style="color:#f92672">==</span> df_copy[<span style="color:#e6db74">&#39;flight_2_from&#39;</span>])<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;same_destination&#39;</span>] <span style="color:#f92672">=</span> (df_copy[<span style="color:#e6db74">&#39;flight_1_to&#39;</span>] <span style="color:#f92672">==</span> df_copy[<span style="color:#e6db74">&#39;flight_2_to&#39;</span>])<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;reversed_route&#39;</span>] <span style="color:#f92672">=</span> ((df_copy[<span style="color:#e6db74">&#39;flight_1_from&#39;</span>] <span style="color:#f92672">==</span> df_copy[<span style="color:#e6db74">&#39;flight_2_to&#39;</span>]) <span style="color:#f92672">&amp;</span>
+</span></span><span style="display:flex;"><span>                                 (df_copy[<span style="color:#e6db74">&#39;flight_1_to&#39;</span>] <span style="color:#f92672">==</span> df_copy[<span style="color:#e6db74">&#39;flight_2_from&#39;</span>]))<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Features for connections</span>
+</span></span><span style="display:flex;"><span>    df_copy[<span style="color:#e6db74">&#39;possible_connection&#39;</span>] <span style="color:#f92672">=</span> ((df_copy[<span style="color:#e6db74">&#39;flight_1_to&#39;</span>] <span style="color:#f92672">==</span> df_copy[<span style="color:#e6db74">&#39;flight_2_from&#39;</span>]) <span style="color:#f92672">&amp;</span>
+</span></span><span style="display:flex;"><span>                                      (df_copy[<span style="color:#e6db74">&#39;flight_1_minutes&#39;</span>] <span style="color:#f92672">&lt;</span> df_copy[<span style="color:#e6db74">&#39;flight_2_minutes&#39;</span>]))<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Drop the original time columns as we now have numerical versions</span>
+</span></span><span style="display:flex;"><span>    df_copy<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Flight_1_time&#39;</span>, <span style="color:#e6db74">&#39;Flight_2_time&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> df_copy
+</span></span></code></pre></div><p>This is like preparing ingredients before cooking! We&rsquo;re transforming raw flight data into something our neural network can digest.</p>
+<h3 id="the-neural-network-architecture">The Neural Network Architecture</h3>
+<p>Let&rsquo;s look at the heart of our code - the neural network model:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_similarity_model</span>(input_dim):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Build a neural network model for flight similarity prediction.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Sequential([
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_dim<span style="color:#f92672">=</span>input_dim),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>)  <span style="color:#75715e"># Output between 0-1 for similarity</span>
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">.</span>compile(
+</span></span><span style="display:flex;"><span>        optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>        metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>, tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>AUC(), tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>Precision(), tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>Recall()]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> model
+</span></span></code></pre></div><p>This creates a neural network with:</p>
+<ul>
+<li>An input layer that takes in our flight features</li>
+<li>Five hidden layers with varying numbers of neurons</li>
+<li>&ldquo;Dropout&rdquo; layers that help prevent overfitting (more on this later!)</li>
+<li>An output layer that gives us a similarity score between 0 and 1</li>
+</ul>
+<h2 id="-why-this-neural-network-works">🤔 Why This Neural Network Works</h2>
+<p>Our flight similarity neural network has some smart design choices:</p>
+<h3 id="multiple-hidden-layers-deep-learning">Multiple Hidden Layers (Deep Learning)</h3>
+<p>The model uses five hidden layers, making it what we call a &ldquo;deep&rdquo; neural network. These multiple layers help the network learn increasingly complex patterns:</p>
+<ul>
+<li>Earlier layers might learn basic relationships like &ldquo;similar departure times&rdquo;</li>
+<li>Middle layers might combine these into patterns like &ldquo;similar route segments&rdquo;</li>
+<li>Later layers can abstract even further to complex relationships</li>
+</ul>
+<p>Think of it like this: If you were trying to spot similar flights, you&rsquo;d first check basic things (same airports?), then look at more complex patterns (similar times AND prices?), and finally make a judgment combining everything. Each layer in our network does something similar!</p>
+<h3 id="relu-activation-the-secret-sauce">ReLU Activation: The Secret Sauce</h3>
+<p>Each hidden layer uses the ReLU (Rectified Linear Unit) activation function. It&rsquo;s like a bouncer at a club that says &ldquo;if the value is negative, make it zero; otherwise, let it through.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># ReLU in simple terms:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">relu</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> max(<span style="color:#ae81ff">0</span>, x)
+</span></span></code></pre></div><p>This simple function helps the network learn faster and avoid the &ldquo;vanishing gradient problem&rdquo; that plagued older neural networks.</p>
+<h3 id="dropout-layers-fighting-overfitting">Dropout Layers: Fighting Overfitting</h3>
+<p>Those <code>Dropout(0.3)</code> layers are super important! They randomly turn off 30% of the neurons during training, which:</p>
+<ul>
+<li>Forces the network not to rely too much on any single neuron</li>
+<li>Acts like training multiple smaller networks</li>
+<li>Improves generalization (how well it works on new data)</li>
+</ul>
+<p>It&rsquo;s like studying for a test where you know some pages will be missing - you have to understand the whole subject, not just memorize specific facts!</p>
+<h3 id="sigmoid-output-perfect-for-similarity">Sigmoid Output: Perfect for Similarity</h3>
+<p>The final layer uses a sigmoid activation function, which squishes any value to between 0 and 1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Sigmoid in simple terms:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sigmoid</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> math<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>x))
+</span></span></code></pre></div><p>This is perfect for similarity prediction since we want a percentage-like score:</p>
+<ul>
+<li>0 means &ldquo;completely different flights&rdquo;</li>
+<li>1 means &ldquo;these flights are practically identical&rdquo;</li>
+</ul>
+<h2 id="-how-many-layers-should-you-use">🎯 How Many Layers Should You Use?</h2>
+<p>The million-dollar question! This model uses five hidden layers, but is that the right number? Here&rsquo;s a simple guide:</p>
+<h3 id="layer-count-guidelines">Layer Count Guidelines:</h3>
+<ol>
+<li><strong>Simple problems</strong> (like linear classification): 1-2 hidden layers</li>
+<li><strong>Medium complexity</strong> (like image recognition): 3-5 hidden layers</li>
+<li><strong>Complex problems</strong> (like natural language processing): 5+ hidden layers</li>
+</ol>
+<p>For our flight similarity model, five layers might be overkill for some datasets, but it gives the model plenty of capacity to learn complex relationships between flights.</p>
+<h3 id="the-goldilocks-principle-not-too-few-not-too-many">The Goldilocks Principle: Not Too Few, Not Too Many</h3>
+<p>Choosing the number of layers is like the story of Goldilocks - you want it just right:</p>
+<ul>
+<li><strong>Too few layers</strong>: Your model might be too simple to capture complex patterns (underfitting)</li>
+<li><strong>Too many layers</strong>: You might overfit to your training data or face vanishing gradient problems</li>
+</ul>
+<p>In our code, we can see the model has a reasonable architecture:</p>
+<ul>
+<li>It starts with 64 neurons in the first hidden layer</li>
+<li>Then has four more layers with 32 neurons each</li>
+<li>Each layer is followed by dropout to prevent overfitting</li>
+</ul>
+<p>This is a good approach for moderately complex problems like flight similarity!</p>
+<h3 id="how-to-choose-in-practice">How to Choose in Practice</h3>
+<p>There&rsquo;s no magic formula, but these principles can help:</p>
+<ul>
+<li><strong>Start small</strong> and add layers if the model isn&rsquo;t learning well enough</li>
+<li><strong>Watch for diminishing returns</strong> - sometimes more layers just waste computing power</li>
+<li><strong>Consider your data volume</strong> - deeper networks need more training data</li>
+<li><strong>Monitor for overfitting</strong> - if your model does great on training data but poorly on new data, you might need fewer layers or more dropout</li>
+</ul>
+<p>The code also uses some great techniques to help with this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>callbacks <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>callbacks<span style="color:#f92672">.</span>EarlyStopping(patience<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, restore_best_weights<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>),
+</span></span><span style="display:flex;"><span>    tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>callbacks<span style="color:#f92672">.</span>ReduceLROnPlateau(factor<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, patience<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>The <code>EarlyStopping</code> callback stops training when the model stops improving, which helps prevent overfitting. And <code>ReduceLROnPlateau</code> reduces the learning rate when progress stalls, helping the model fine-tune its weights.</p>
+<h2 id="-practical-tips-for-your-own-neural-networks">🚀 Practical Tips for Your Own Neural Networks</h2>
+<p>If you&rsquo;re building your own neural network for a similar problem, here are some fun tips:</p>
+<ol>
+<li>
+<p><strong>Start simple!</strong> Begin with 1-2 hidden layers and see how it performs before adding complexity.</p>
+</li>
+<li>
+<p><strong>Feature engineering is king!</strong> Good features (like our flight comparison features) can make even a simple model perform well.</p>
+</li>
+<li>
+<p><strong>Always use dropout</strong> - it&rsquo;s like magic fairy dust that prevents overfitting. The 30% rate in our code is a good starting point.</p>
+</li>
+<li>
+<p><strong>Monitor training curves</strong> - if your training accuracy keeps improving but validation doesn&rsquo;t, you&rsquo;re probably overfitting.</p>
+</li>
+<li>
+<p><strong>Experiment with layer sizes</strong> - a common pattern is to start wider (more neurons) and get narrower as you go deeper, like our model does (64 → 32 → 32 → 32 → 32).</p>
+</li>
+</ol>
+<h2 id="code-analysis-alternative-architectures">Code Analysis: Alternative Architectures</h2>
+<p>Let&rsquo;s look at how we might create simpler or more complex versions of our model:</p>
+<h3 id="a-simpler-model-2-hidden-layers">A Simpler Model (2 Hidden Layers)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_simpler_model</span>(input_dim):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;A simpler model with fewer layers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Sequential([
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># First hidden layer: 64 neurons</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_dim<span style="color:#f92672">=</span>input_dim),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Second hidden layer: 32 neurons</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Output layer</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>)
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">.</span>compile(
+</span></span><span style="display:flex;"><span>        optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>        metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> model
+</span></span></code></pre></div><p>When to use this simpler model:</p>
+<ul>
+<li>When you have a smaller dataset (fewer than 1000 examples)</li>
+<li>When the relationship between features and similarity is fairly straightforward</li>
+<li>When you need faster training times</li>
+<li>As a baseline to compare against more complex models</li>
+</ul>
+<h3 id="a-more-complex-model-7-hidden-layers">A More Complex Model (7 Hidden Layers)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_deeper_model</span>(input_dim):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;A deeper model with more layers.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Sequential([
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># First hidden layer</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_dim<span style="color:#f92672">=</span>input_dim),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># More hidden layers with decreasing neuron counts</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">16</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">16</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>        Dropout(<span style="color:#ae81ff">0.3</span>),
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Output layer</span>
+</span></span><span style="display:flex;"><span>        Dense(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>)
+</span></span><span style="display:flex;"><span>    ])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">.</span>compile(
+</span></span><span style="display:flex;"><span>        optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>        loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>        metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> model
+</span></span></code></pre></div><p>When to use this deeper model:</p>
+<ul>
+<li>With large datasets (10,000+ examples)</li>
+<li>When you have many features with complex interactions</li>
+<li>When simpler models aren&rsquo;t capturing the patterns well</li>
+<li>When you have the computational resources for longer training times</li>
+</ul>
+<h2 id="-conclusion">🎭 Conclusion</h2>
+<p>Neural networks might seem like magic, but they&rsquo;re really just clever mathematical models inspired by our own brains. The flight similarity prediction model we explored demonstrates many best practices:</p>
+<ul>
+<li>Thoughtful feature engineering</li>
+<li>Multiple hidden layers to learn complex patterns</li>
+<li>Dropout for regularization</li>
+<li>Appropriate activation functions</li>
+</ul>
+<p>Whether you&rsquo;re predicting flight similarities, recognizing faces, or translating languages, these principles apply across the neural network universe!</p>
+<p>Happy learning, and may your neural networks always converge! 🧠✨</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/machine-learning/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Machine Learning</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/neural-networks/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Neural Networks</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/tutorial/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tutorial</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://www.dfcubidesc.com/" >
+    &copy;  dfcubidesc 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

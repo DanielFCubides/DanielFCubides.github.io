@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neural Networks on dfcubidesc</title>
+    <link>http://www.dfcubidesc.com/tags/neural-networks/</link>
+    <description>Recent content in Neural Networks on dfcubidesc</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://www.dfcubidesc.com/tags/neural-networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks Explained: Flight Similarity Prediction</title>
+      <link>http://www.dfcubidesc.com/posts/neuronalnetwork/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://www.dfcubidesc.com/posts/neuronalnetwork/</guid>
+      <description>&lt;h1 id=&#34;neural-networks-explained-flight-similarity-prediction&#34;&gt;Neural Networks Explained: Flight Similarity Prediction&lt;/h1&gt;&#xA;&lt;p&gt;Hey there, tech enthusiasts and curious minds! 👋 Today we&amp;rsquo;re diving into the fascinating world of neural networks with a real example: predicting flight similarities! Don&amp;rsquo;t worry if you&amp;rsquo;re new to this - I&amp;rsquo;ll break it down so it&amp;rsquo;s as easy as ordering your favorite pizza.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-neural-networks-the-basics&#34;&gt;🧠 Neural Networks: The Basics&lt;/h2&gt;&#xA;&lt;p&gt;Imagine your brain for a second. It&amp;rsquo;s made up of billions of neurons that send signals to each other, helping you recognize patterns, make decisions, and learn new things. Artificial Neural Networks (ANNs) are inspired by this amazing biological design!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

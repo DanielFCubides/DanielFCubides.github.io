@@ -4,7 +4,23 @@
     <title>Categories on dfcubidesc</title>
     <link>http://www.dfcubidesc.com/categories/</link>
     <description>Recent content in Categories on dfcubidesc</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://www.dfcubidesc.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://www.dfcubidesc.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Science</title>
+      <link>http://www.dfcubidesc.com/categories/data-science/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://www.dfcubidesc.com/categories/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://www.dfcubidesc.com/categories/programming/</link>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://www.dfcubidesc.com/categories/programming/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
