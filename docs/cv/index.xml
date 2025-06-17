@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About me on dfcubidesc</title>
-    <link>http://www.dfcubidesc.com/cv/</link>
+    <link>http://localhost:1313/cv/</link>
     <description>Recent content in About me on dfcubidesc</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Jun 2023 09:03:20 -0500</lastBuildDate>
-    <atom:link href="http://www.dfcubidesc.com/cv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/cv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My journey so far</title>
-      <link>http://www.dfcubidesc.com/cv/resume/</link>
+      <link>http://localhost:1313/cv/resume/</link>
       <pubDate>Thu, 01 Jun 2023 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/cv/resume/</guid>
+      <guid>http://localhost:1313/cv/resume/</guid>
       <description>&lt;p&gt;I am a transformational leader in software development and operations with experience building and empowering engineering teams to deliver and support PaaS/SaaS in hyper-growth environments. Passionate about growing technical leaders and building diverse, sustainable teams in an evolving Tech culture.&lt;/p&gt;&#xA;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;&#xA;&lt;p&gt;Cultural Change, Mentorship, Negotiation, Project Management, Program Management, Cloud Adoption, Golang and Kubernetes&lt;/p&gt;&#xA;&lt;h1 id=&#34;experience&#34;&gt;Experience&lt;/h1&gt;&#xA;&lt;h3 id=&#34;senior-software-engineering-manager&#34;&gt;Senior Software Engineering Manager&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Telesign / Customer Engagement&lt;/strong&gt;&lt;br&gt;&#xA;April 2023&#xA;At Telesign I was responsible for:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,59 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Interesting Ideas on dfcubidesc</title>
-    <link>http://www.dfcubidesc.com/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Interesting Ideas on dfcubidesc</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://www.dfcubidesc.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Networks Explained: Flight Similarity Prediction</title>
-      <link>http://www.dfcubidesc.com/posts/neuronalnetwork/</link>
+      <link>http://localhost:1313/posts/neuronalnetwork/</link>
       <pubDate>Tue, 22 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/neuronalnetwork/</guid>
+      <guid>http://localhost:1313/posts/neuronalnetwork/</guid>
       <description>&lt;h1 id=&#34;neural-networks-explained-flight-similarity-prediction&#34;&gt;Neural Networks Explained: Flight Similarity Prediction&lt;/h1&gt;&#xA;&lt;p&gt;Hey there, tech enthusiasts and curious minds! 👋 Today we&amp;rsquo;re diving into the fascinating world of neural networks with a real example: predicting flight similarities! Don&amp;rsquo;t worry if you&amp;rsquo;re new to this - I&amp;rsquo;ll break it down so it&amp;rsquo;s as easy as ordering your favorite pizza.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-neural-networks-the-basics&#34;&gt;🧠 Neural Networks: The Basics&lt;/h2&gt;&#xA;&lt;p&gt;Imagine your brain for a second. It&amp;rsquo;s made up of billions of neurons that send signals to each other, helping you recognize patterns, make decisions, and learn new things. Artificial Neural Networks (ANNs) are inspired by this amazing biological design!&lt;/p&gt;</description>
     </item>
     <item>
-      <title>The rol of a Tech Lea part 3d</title>
-      <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart3/</link>
+      <title>The Five Dysfunctions of a Team part 2</title>
+      <link>http://localhost:1313/posts/the5thdisfuncofateamp2/</link>
       <pubDate>Thu, 20 Feb 2025 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/cleanarchitecturepart3/</guid>
+      <guid>http://localhost:1313/posts/the5thdisfuncofateamp2/</guid>
+      <description>&lt;p&gt;&amp;ldquo;The Five Dysfunctions of a Team&amp;rdquo; by Patrick Lencioni presents a unique approach to understanding and overcoming common pitfalls faced by teams.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Absence of Trust: This foundational dysfunction is where team members are not open with each other about their mistakes and weaknesses. It leads to a lack of vulnerability-based trust, which is crucial for building a strong team.&lt;/li&gt;&#xA;&lt;li&gt;Fear of Conflict: Teams that lack trust are incapable of engaging in unfiltered and passionate debate of ideas. Instead, they resort to veiled discussions and guarded comments.&lt;/li&gt;&#xA;&lt;li&gt;Lack of Commitment: Without having aired their opinions in the course of passionate and open debate, team members rarely, if ever, buy in and commit to decisions, though they may feign agreement during meetings.&lt;/li&gt;&#xA;&lt;li&gt;Avoidance of Accountability: Due to the lack of commitment and buy-in, team members are often hesitant to call their peers on actions and behaviors that seem counterproductive to the team&amp;rsquo;s good health.&lt;/li&gt;&#xA;&lt;li&gt;Inattention to Results: Failure to hold one another accountable leads to team members putting their individual needs (such as ego, career development, or recognition) or even the needs of their divisions above the collective goals of the team.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>The rol of a Tech Lea part 3d</title>
+      <link>http://localhost:1313/posts/cleanarchitecturepart3/</link>
+      <pubDate>Thu, 20 Feb 2025 09:03:20 -0500</pubDate>
+      <guid>http://localhost:1313/posts/cleanarchitecturepart3/</guid>
       <description>&lt;p&gt;The rol of a software Architect or a tech lead may vary slightly in different organizations, generally encompass a range of duties focused on guiding the development and maintenance of software systems. These roles should docus on:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Defining and Maintaining the Overall Architecture: The primary responsibility of a software architect or tech lead is to define the software&amp;rsquo;s architecture. This involves deciding on the software&amp;rsquo;s structure, its components, and how these components interact with each other. They ensure that the architecture supports the business goals and is aligned with best practices and design principles, like SOLID principles.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microservices vs. Monolithic Architecture: A Comparative Analysis</title>
-      <link>http://www.dfcubidesc.com/posts/microservicesvsmonolithic/</link>
+      <link>http://localhost:1313/posts/microservicesvsmonolithic/</link>
       <pubDate>Thu, 22 Feb 2024 09:22:03 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/microservicesvsmonolithic/</guid>
+      <guid>http://localhost:1313/posts/microservicesvsmonolithic/</guid>
       <description>&lt;h1 id=&#34;microservices-vs-monolithic-architecture-a-comparative-analysis&#34;&gt;Microservices vs. Monolithic Architecture: A Comparative Analysis&lt;/h1&gt;&#xA;&lt;p&gt;In the rapidly evolving world of software development, the debate between microservices and monolithic architectures is more relevant than ever. Drawing insights from Sam Newman&amp;rsquo;s seminal works, &amp;ldquo;Building Microservices&amp;rdquo; and &amp;ldquo;Monolith to Microservices,&amp;rdquo; and incorporating theories from Martin Fowler, this post aims to offer a comprehensive understanding of both architectures, providing software professionals and enthusiasts with the knowledge needed to navigate these complex landscapes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SOLID principles for architecture</title>
-      <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart2/</link>
+      <link>http://localhost:1313/posts/cleanarchitecturepart2/</link>
       <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/cleanarchitecturepart2/</guid>
+      <guid>http://localhost:1313/posts/cleanarchitecturepart2/</guid>
       <description>&lt;p&gt;The SOLID principles are a set of guidelines for software design and architecture, aimed at making software systems more understandable, flexible, and maintainable. These principles were promoted by Robert C. Martin in his book &amp;ldquo;Clean Architecture,&amp;rdquo; and they are widely accepted in the software development community. Here&amp;rsquo;s a breakdown of each principle:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Single Responsibility Principle (SRP): This principle states that a class should have only one reason to change. It means that a class should only have one job or responsibility. By following SRP, the software becomes easier to implement and less prone to bugs, as each class or module has a clear purpose.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Five Dysfunctions of a Team</title>
-      <link>http://www.dfcubidesc.com/posts/the5thdisfuncofateam/</link>
+      <link>http://localhost:1313/posts/the5thdisfuncofateam/</link>
       <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/the5thdisfuncofateam/</guid>
+      <guid>http://localhost:1313/posts/the5thdisfuncofateam/</guid>
       <description>&lt;p&gt;&amp;ldquo;The Five Dysfunctions of a Team&amp;rdquo; by Patrick Lencioni presents a unique approach to understanding and overcoming common pitfalls faced by teams.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Absence of Trust: This foundational dysfunction is where team members are not open with each other about their mistakes and weaknesses. It leads to a lack of vulnerability-based trust, which is crucial for building a strong team.&lt;/li&gt;&#xA;&lt;li&gt;Fear of Conflict: Teams that lack trust are incapable of engaging in unfiltered and passionate debate of ideas. Instead, they resort to veiled discussions and guarded comments.&lt;/li&gt;&#xA;&lt;li&gt;Lack of Commitment: Without having aired their opinions in the course of passionate and open debate, team members rarely, if ever, buy in and commit to decisions, though they may feign agreement during meetings.&lt;/li&gt;&#xA;&lt;li&gt;Avoidance of Accountability: Due to the lack of commitment and buy-in, team members are often hesitant to call their peers on actions and behaviors that seem counterproductive to the team&amp;rsquo;s good health.&lt;/li&gt;&#xA;&lt;li&gt;Inattention to Results: Failure to hold one another accountable leads to team members putting their individual needs (such as ego, career development, or recognition) or even the needs of their divisions above the collective goals of the team.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
     <item>
       <title>The rol of a Tech Lead</title>
-      <link>http://www.dfcubidesc.com/posts/cleanarchitecturepart1/</link>
+      <link>http://localhost:1313/posts/cleanarchitecturepart1/</link>
       <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/cleanarchitecturepart1/</guid>
+      <guid>http://localhost:1313/posts/cleanarchitecturepart1/</guid>
       <description>&lt;p&gt;The rol of a software Architect or a tech lead may vary slightly in different organizations, generally encompass a range of duties focused on guiding the development and maintenance of software systems. These roles should docus on:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Defining and Maintaining the Overall Architecture: The primary responsibility of a software architect or tech lead is to define the software&amp;rsquo;s architecture. This involves deciding on the software&amp;rsquo;s structure, its components, and how these components interact with each other. They ensure that the architecture supports the business goals and is aligned with best practices and design principles, like SOLID principles.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Understanding GRPC, GraphQL and Rest</title>
-      <link>http://www.dfcubidesc.com/posts/communicationprotocols/</link>
+      <link>http://localhost:1313/posts/communicationprotocols/</link>
       <pubDate>Mon, 18 Dec 2023 09:03:20 -0500</pubDate>
-      <guid>http://www.dfcubidesc.com/posts/communicationprotocols/</guid>
+      <guid>http://localhost:1313/posts/communicationprotocols/</guid>
       <description>&lt;h2 id=&#34;understanding-rest-graphql-and-grpc-a-comprehensive-comparison&#34;&gt;Understanding REST, GraphQL, and gRPC: A Comprehensive Comparison&lt;/h2&gt;&#xA;&lt;p&gt;When building APIs for modern applications, choosing the right communication protocol can be a critical decision that impacts performance, scalability, and flexibility. REST, GraphQL, and gRPC are three popular approaches, each with its own strengths and weaknesses. In this blog, we&amp;rsquo;ll explore what each of these protocols is, their advantages and disadvantages, and the best use cases for each.&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-rest-representational-state-transfer&#34;&gt;1. &lt;strong&gt;REST (Representational State Transfer)&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;h4 id=&#34;what-is-rest&#34;&gt;What is REST?&lt;/h4&gt;&#xA;&lt;p&gt;REST is an architectural style that uses HTTP requests to access and manipulate resources represented as JSON, XML, or other formats. It follows a stateless communication model where each request from the client to the server must contain all the necessary information to understand the request.&lt;/p&gt;</description>
     </item>
   </channel>
