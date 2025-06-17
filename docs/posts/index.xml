@@ -6,8 +6,15 @@
     <description>Recent content in Interesting Ideas on dfcubidesc</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jun 2025 20:59:22 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feature Flags With Open Feature</title>
+      <link>http://localhost:1313/posts/feature-flags-with-open-feature/</link>
+      <pubDate>Mon, 16 Jun 2025 20:59:22 -0500</pubDate>
+      <guid>http://localhost:1313/posts/feature-flags-with-open-feature/</guid>
+      <description>&lt;h1 id=&#34;feature-flags-the-clean-architecture-way&#34;&gt;Feature Flags: The Clean Architecture Way&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;How OpenFeature enables incremental development while keeping your architecture clean and vendor-agnostic&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-problem-with-traditional-feature-flag-implementations&#34;&gt;The Problem with Traditional Feature Flag Implementations&lt;/h2&gt;&#xA;&lt;p&gt;Picture this: You&amp;rsquo;re working on a critical feature for your application. The business is breathing down your neck, demanding frequent updates on progress. The feature is complex, will take weeks to complete, and you know that merging half-finished code into the main branch is a recipe for disaster.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Neural Networks Explained: Flight Similarity Prediction</title>
       <link>http://localhost:1313/posts/neuronalnetwork/</link>
