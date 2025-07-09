@@ -47,8 +47,8 @@
 
   <meta itemprop="name" content="Interesting Ideas">
   <meta itemprop="description" content="Welcome to my blog with some of my work in progress.">
-  <meta itemprop="datePublished" content="2025-06-16T20:59:22-05:00">
-  <meta itemprop="dateModified" content="2025-06-16T20:59:22-05:00">
+  <meta itemprop="datePublished" content="2025-07-03T19:54:53-05:00">
+  <meta itemprop="dateModified" content="2025-07-03T19:54:53-05:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Interesting Ideas">
   <meta name="twitter:description" content="Welcome to my blog with some of my work in progress.">
@@ -118,6 +118,30 @@
   <article class="pa3 pa4-ns nested-copy-line-height">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Interesting Ideas</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/keycloak-ssl-adventure/" class="link black dim">
+        Keycloak Ssl Adventure
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="the-great-keycloak-ssl-adventure-a-tale-of-mixed-content-proxy-headers-and-lessons-learned">The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned</h1>
+<p><em>A developer&rsquo;s journey from CloudFront complexity to simple SSL success</em></p>
+<h2 id="the-problem-that-started-it-all">The Problem That Started It All</h2>
+<p>Picture this: you&rsquo;ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser&rsquo;s developer console and see the dreaded red errors:</p>
+<pre tabindex="0"><code>Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34;
+Content-Security-Policy: The page&#39;s settings blocked the loading of a resource...
+</code></pre><p>Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.</p>
+    </div>
+    <a href="/posts/keycloak-ssl-adventure/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">

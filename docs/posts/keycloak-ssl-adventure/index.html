@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Keycloak Ssl Adventure | dfcubidesc</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned
+A developer&rsquo;s journey from CloudFront complexity to simple SSL success
+The Problem That Started It All
+Picture this: you&rsquo;ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser&rsquo;s developer console and see the dreaded red errors:
+Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34;
+Content-Security-Policy: The page&#39;s settings blocked the loading of a resource...
+Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.">
+    <meta name="generator" content="Hugo 0.145.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/keycloak-ssl-adventure/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/keycloak-ssl-adventure/">
+  <meta property="og:site_name" content="dfcubidesc">
+  <meta property="og:title" content="Keycloak Ssl Adventure">
+  <meta property="og:description" content="The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned A developer’s journey from CloudFront complexity to simple SSL success
+The Problem That Started It All Picture this: you’ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser’s developer console and see the dreaded red errors:
+Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34; Content-Security-Policy: The page&#39;s settings blocked the loading of a resource... Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-03T19:54:53-05:00">
+    <meta property="article:modified_time" content="2025-07-03T19:54:53-05:00">
+
+  <meta itemprop="name" content="Keycloak Ssl Adventure">
+  <meta itemprop="description" content="The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned A developer’s journey from CloudFront complexity to simple SSL success
+The Problem That Started It All Picture this: you’ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser’s developer console and see the dreaded red errors:
+Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34; Content-Security-Policy: The page&#39;s settings blocked the loading of a resource... Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.">
+  <meta itemprop="datePublished" content="2025-07-03T19:54:53-05:00">
+  <meta itemprop="dateModified" content="2025-07-03T19:54:53-05:00">
+  <meta itemprop="wordCount" content="1076">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keycloak Ssl Adventure">
+  <meta name="twitter:description" content="The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned A developer’s journey from CloudFront complexity to simple SSL success
+The Problem That Started It All Picture this: you’ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser’s developer console and see the dreaded red errors:
+Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34; Content-Security-Policy: The page&#39;s settings blocked the loading of a resource... Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('http://localhost:1313/images/ideas.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        dfcubidesc
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cv/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Interesting Ideas page">
+              Interesting Ideas
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Keycloak Ssl Adventure</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Interesting Ideas
+      </aside>
+      
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Keycloak Ssl Adventure</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-07-03T19:54:53-05:00">July 3, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="the-great-keycloak-ssl-adventure-a-tale-of-mixed-content-proxy-headers-and-lessons-learned">The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned</h1>
+<p><em>A developer&rsquo;s journey from CloudFront complexity to simple SSL success</em></p>
+<h2 id="the-problem-that-started-it-all">The Problem That Started It All</h2>
+<p>Picture this: you&rsquo;ve got Keycloak running smoothly behind AWS CloudFront and Application Load Balancer (ALB). Everything seems perfect until you open your browser&rsquo;s developer console and see the dreaded red errors:</p>
+<pre tabindex="0"><code>Blocked loading mixed active content &#34;http://keycloack.example.com/resources/master/admin/en&#34;
+Content-Security-Policy: The page&#39;s settings blocked the loading of a resource...
+</code></pre><p>Mixed content errors. The bane of every developer trying to serve a secure application. Your users access the site via HTTPS, but Keycloak is generating HTTP URLs for its resources, causing browsers to block them for security reasons.</p>
+<h2 id="first-attempt-the-simple-fix-that-wasnt">First Attempt: The &ldquo;Simple&rdquo; Fix That Wasn&rsquo;t</h2>
+<p>Like any reasonable developer, I started with what seemed like the obvious solution: configure Keycloak to understand it&rsquo;s behind an HTTPS proxy. How hard could it be?</p>
+<p><strong>Spoiler alert: Very hard.</strong></p>
+<p>The initial advice I gave was textbook perfect:</p>
+<ul>
+<li>Set <code>KC_PROXY=edge</code> to enable proxy mode</li>
+<li>Configure CloudFront to send <code>X-Forwarded-Proto: https</code> headers</li>
+<li>Add hostname configuration to Keycloak</li>
+</ul>
+<p>But after implementing these changes, the mixed content errors persisted. Keycloak was still generating HTTP URLs.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// What we kept seeing in the browser:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;serverBaseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://keycloack.example.com&#34;</span>,  <span style="color:#75715e">// ❌ Still HTTP!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;adminBaseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://keycloack.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;authUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://keycloack.example.com&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="down-the-rabbit-hole-aws-proxy-chain-debugging">Down the Rabbit Hole: AWS Proxy Chain Debugging</h2>
+<p>This is where things got interesting (and frustrating). We had a complex chain:</p>
+<pre tabindex="0"><code>Browser (HTTPS) → CloudFront (HTTPS) → ALB (HTTP) → Keycloak (HTTP:8080)
+</code></pre><p>Each component needed to properly forward proxy information. The debugging journey involved:</p>
+<h3 id="cloudfront-configuration-attempts">CloudFront Configuration Attempts</h3>
+<ul>
+<li>Adding custom origin headers</li>
+<li>Configuring origin request policies</li>
+<li>Testing different cache behaviors</li>
+<li>Creating invalidations and waiting for propagation</li>
+</ul>
+<h3 id="alb-investigation">ALB Investigation</h3>
+<ul>
+<li>Checking target group attributes</li>
+<li>Verifying listener configurations</li>
+<li>Testing header forwarding manually</li>
+</ul>
+<h3 id="keycloak-configuration-experiments">Keycloak Configuration Experiments</h3>
+<ul>
+<li>Trying different proxy modes (<code>edge</code>, <code>reencrypt</code>, <code>passthrough</code>)</li>
+<li>Testing various hostname configuration formats</li>
+<li>Attempting to force HTTPS URLs explicitly</li>
+</ul>
+<h2 id="the-revelation-when-correct-configuration-doesnt-work">The Revelation: When &ldquo;Correct&rdquo; Configuration Doesn&rsquo;t Work</h2>
+<p>Here&rsquo;s what was fascinating: according to AWS documentation and Keycloak guides, our configuration was correct. CloudFront should forward headers, ALB should preserve them, and Keycloak should recognize the proxy context.</p>
+<p>But reality had other plans.</p>
+<p>Through extensive testing, we discovered:</p>
+<ol>
+<li><strong>CloudFront Origin Custom Headers</strong> were configured correctly but not being forwarded due to cache policy conflicts</li>
+<li><strong>ALB Header Preservation</strong> was working, but the headers weren&rsquo;t reaching Keycloak as expected</li>
+<li><strong>Keycloak Version Changes</strong> meant that hostname configuration syntax had evolved between versions</li>
+</ol>
+<h2 id="multiple-failed-solutions">Multiple Failed Solutions</h2>
+<p>I&rsquo;ll be honest - I provided several solutions that didn&rsquo;t work:</p>
+<h3 id="failed-attempt-1-origin-request-policy">Failed Attempt #1: Origin Request Policy</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># We tried using AWS managed policies</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Origin-Request-Policy</span>: <span style="color:#ae81ff">Managed-AllViewer</span>
+</span></span></code></pre></div><p><em>Result: Still didn&rsquo;t forward the custom headers properly</em></p>
+<h3 id="failed-attempt-2-explicit-url-configuration">Failed Attempt #2: Explicit URL Configuration</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Keycloak environment variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">KC_HOSTNAME_URL</span>: <span style="color:#ae81ff">https://keycloack.example.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">KC_HOSTNAME_ADMIN_URL</span>: <span style="color:#ae81ff">https://keycloack.example.com</span>
+</span></span></code></pre></div><p><em>Result: Keycloak 26.x handles hostname configuration differently than documented</em></p>
+<h3 id="failed-attempt-3-command-line-arguments">Failed Attempt #3: Command Line Arguments</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;start-dev&#34;</span>, <span style="color:#e6db74">&#34;--hostname-url=https://keycloack.example.com&#34;</span>]
+</span></span></code></pre></div><p><em>Result: &ldquo;Unknown option: &lsquo;&ndash;hostname-url&rsquo;&rdquo; - the parameter doesn&rsquo;t exist</em></p>
+<h2 id="the-turning-point-simplify-everything">The Turning Point: Simplify Everything</h2>
+<p>After hours of debugging the CloudFront → ALB → Keycloak proxy chain, we had an epiphany: <strong>why make it so complicated?</strong></p>
+<p>The breakthrough came when we asked: &ldquo;What if we skip all the AWS proxy complexity and just use a simple EC2 instance with SSL?&rdquo;</p>
+<h2 id="the-solution-direct-ssl-termination">The Solution: Direct SSL Termination</h2>
+<p>Instead of fighting with proxy headers through multiple AWS services, we implemented a clean, simple architecture:</p>
+<pre tabindex="0"><code>Browser (HTTPS) → EC2 Nginx (443) → Keycloak Container (8080)
+</code></pre><h3 id="the-implementation">The Implementation</h3>
+<p><strong>1. Docker Compose with Nginx and Keycloak:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nginx</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;80:80&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;443:443&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./nginx.conf:/etc/nginx/nginx.conf:ro</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./certbot/conf:/etc/letsencrypt:ro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">keycloak</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">keycloak</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">quay.io/keycloak/keycloak:26.2.5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KC_HOSTNAME</span>: <span style="color:#ae81ff">keycloack.example.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KC_HOSTNAME_STRICT</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KC_HTTP_ENABLED</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KC_PROXY</span>: <span style="color:#ae81ff">edge</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;start-dev&#34;</span>, <span style="color:#e6db74">&#34;--hostname=keycloack.example.com&#34;</span>, <span style="color:#e6db74">&#34;--proxy=edge&#34;</span>]
+</span></span></code></pre></div><p><strong>2. Nginx Configuration:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#75715e"># HTTP to HTTPS redirect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">keycloack.example.com</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/.well-known/acme-challenge/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">root</span> <span style="color:#e6db74">/var/www/certbot</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">return</span> <span style="color:#ae81ff">301</span> <span style="color:#e6db74">https://</span>$server_name$request_uri;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HTTPS with proper proxy headers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">keycloack.example.com</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_certificate</span> <span style="color:#e6db74">/etc/letsencrypt/live/keycloack.example.com/fullchain.pem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">/etc/letsencrypt/live/keycloack.example.com/privkey.pem</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_pass</span> <span style="color:#e6db74">http://keycloak:8080</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">Host</span> $host;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Real-IP</span> $remote_addr;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span> <span style="color:#e6db74">X-Forwarded-Port</span> $server_port;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>3. Let&rsquo;s Encrypt SSL Certificate:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Get free SSL certificate</span>
+</span></span><span style="display:flex;"><span>docker-compose run --rm certbot certonly <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --webroot --webroot-path<span style="color:#f92672">=</span>/var/www/certbot <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --email your-email@example.com <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --agree-tos --no-eff-email <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d keycloack.example.com
+</span></span></code></pre></div><h2 id="the-final-debugging-challenge">The Final Debugging Challenge</h2>
+<p>Even with the simplified architecture, we hit one last snag. Keycloak was still generating HTTP URLs, and the error logs showed:</p>
+<pre tabindex="0"><code>Unknown option: &#39;--hostname-url&#39;
+Possible solutions: --hostname, --hostname-admin, --hostname-strict
+</code></pre><p>The issue? Keycloak 26.x uses different command-line options than what various online tutorials suggest. The working configuration required the correct syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;start-dev&#34;</span>, <span style="color:#e6db74">&#34;--hostname=keycloack.example.com&#34;</span>, <span style="color:#e6db74">&#34;--hostname-strict=true&#34;</span>, <span style="color:#e6db74">&#34;--proxy=edge&#34;</span>]
+</span></span></code></pre></div><h2 id="lessons-learned">Lessons Learned</h2>
+<h3 id="1-sometimes-simple-is-better">1. Sometimes Simple is Better</h3>
+<p>The CloudFront + ALB architecture seemed enterprise-grade and &ldquo;proper,&rdquo; but it introduced unnecessary complexity. A single EC2 instance with Nginx proved more reliable and easier to debug.</p>
+<h3 id="2-documentation-lag-is-real">2. Documentation Lag is Real</h3>
+<p>Keycloak&rsquo;s configuration syntax changes between versions, and online tutorials often reference older versions. When troubleshooting, always check the specific version&rsquo;s documentation.</p>
+<h3 id="3-proxy-headers-are-tricky">3. Proxy Headers are Tricky</h3>
+<p>The chain of proxy header forwarding (CloudFront → ALB → Application) has many potential failure points. Each service needs proper configuration, and debugging requires testing each link individually.</p>
+<h3 id="4-dont-trust-should-work-solutions">4. Don&rsquo;t Trust &ldquo;Should Work&rdquo; Solutions</h3>
+<p>Just because AWS documentation says CloudFront forwards custom headers doesn&rsquo;t mean your specific setup will work as expected. Always test and verify.</p>
+<h3 id="5-cost-benefit-analysis-matters">5. Cost-Benefit Analysis Matters</h3>
+<p>Our simple solution costs ~$5/month for the EC2 instance vs ~$30+/month for ALB + CloudFront, with better reliability and easier maintenance.</p>
+<h2 id="the-happy-ending">The Happy Ending</h2>
+<p>After implementing the direct SSL approach:</p>
+<p>✅ <strong>Mixed content errors</strong>: Gone<br>
+✅ <strong>HTTPS URLs</strong>: Generated correctly<br>
+✅ <strong>SSL certificate</strong>: Free and auto-renewing<br>
+✅ <strong>Maintenance</strong>: Minimal<br>
+✅ <strong>Cost</strong>: Significantly lower</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// What we finally achieved:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;serverBaseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://keycloack.example.com&#34;</span>,  <span style="color:#75715e">// ✅ HTTPS!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;adminBaseUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://keycloack.example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;authUrl&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://keycloack.example.com&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="key-takeaways-for-fellow-developers">Key Takeaways for Fellow Developers</h2>
+<ol>
+<li><strong>Start simple</strong> - Don&rsquo;t over-engineer your SSL termination</li>
+<li><strong>Let&rsquo;s Encrypt is fantastic</strong> - Free, reliable, and well-supported</li>
+<li><strong>Direct proxy configuration</strong> often works better than multi-service chains</li>
+<li><strong>Test incrementally</strong> - Debug one component at a time</li>
+<li><strong>Question complexity</strong> - If it&rsquo;s hard to configure, maybe there&rsquo;s a simpler way</li>
+</ol>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>This adventure taught me that sometimes the &ldquo;enterprise&rdquo; solution isn&rsquo;t the best solution. While AWS managed services have their place, a well-configured EC2 instance with Nginx and Let&rsquo;s Encrypt can be more reliable, cheaper, and easier to maintain than a complex proxy chain.</p>
+<p>The next time you&rsquo;re fighting with mixed content errors behind AWS services, consider this: maybe the problem isn&rsquo;t your configuration - maybe it&rsquo;s your architecture.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  dfcubidesc 2025 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
