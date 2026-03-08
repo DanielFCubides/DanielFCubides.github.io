@@ -1,7 +1,7 @@
 ---
 title: "Keycloak Ssl Adventure"
 date: 2025-07-03T19:54:53-05:00
-draft: true
+draft: false
 featured_image: /images/cartagena.png
 ---
 # The Great Keycloak SSL Adventure: A Tale of Mixed Content, Proxy Headers, and Lessons Learned
