@@ -2,6 +2,7 @@
 title: "Clean Architecture Part 3: Why a Tech Lead Must Care About SOLID"
 date: 2025-02-20T09:03:20-05:00
 draft: false
+featured_image: /images/CabodeLaVela2.png
 ---
 
 In the previous parts of this series, we explored what Clean Architecture is and how SOLID principles shape the design of individual components. In this post, we go one level up: why should a **Tech Lead** specifically care about SOLID? And when the pressure of deadlines and business demands pushes back, why should the answer almost always be to protect the architecture?

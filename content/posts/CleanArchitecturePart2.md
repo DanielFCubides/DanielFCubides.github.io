@@ -2,6 +2,7 @@
 title: "SOLID principles for architecture"
 date: 2023-12-18T09:03:20-05:00
 draft: false
+featured_image: /images/GrayCoffeeFarm.png
 ---
 The SOLID principles are a set of guidelines for software design and architecture, aimed at making software systems more understandable, flexible, and maintainable. These principles were promoted by Robert C. Martin in his book "Clean Architecture," and they are widely accepted in the software development community. Here's a breakdown of each principle:
 

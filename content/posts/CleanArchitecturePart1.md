@@ -2,6 +2,7 @@
 title: "The rol of a Tech Lead"
 date: 2023-12-18T09:03:20-05:00
 draft: false
+featured_image: /images/Nuqui.png
 ---
 The rol of a software Architect or a tech lead may vary slightly in different organizations, generally encompass a range of duties focused on guiding the development and maintenance of software systems. These roles should docus on:
 
